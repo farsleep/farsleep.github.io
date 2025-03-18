@@ -1,20 +1,8 @@
 "use client"
 
 import Link from 'next/link'
-import { useState } from 'react'
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would integrate with your backend
-    console.log('Email submitted:', email);
-    // Simulate successful subscription
-    setSubscribed(true);
-    setEmail('');
-  };
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-helvetica">
@@ -24,10 +12,10 @@ export default function Home() {
         </div>
         <nav>
           <ul className="flex space-x-6">
-            <li><Link href="#technology" className="hover:text-gray-400 transition-colors">Technology</Link></li>
             <li><Link href="#milestones" className="hover:text-gray-400 transition-colors">Milestones</Link></li>
-            <li><Link href="#updates" className="hover:text-gray-400 transition-colors">Updates</Link></li>
-            <li><Link href="#contact" className="hover:text-gray-400 transition-colors">Contact</Link></li>
+            <li><Link href="#mission" className="hover:text-gray-400 transition-colors">Mission</Link></li>
+            <li><Link href="#technology" className="hover:text-gray-400 transition-colors">Technology</Link></li>
+            <li><Link href="/contact" className="hover:text-gray-400 transition-colors">Contact</Link></li>
           </ul>
         </nav>
       </header>
@@ -105,23 +93,23 @@ export default function Home() {
                 <p className="text-lg mb-6">Substance S</p>
 
                 <div className="text-sm">
-                  <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                  <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                     <span className="text-gray-400">Compound</span>
                     <span>Peptide</span>
                   </div>
-                  <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                  <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                     <span className="text-gray-400">Target</span>
                     <span>Neuropeptide S receptor (agonist/positive allosteric modulation)</span>
                   </div>
-                  <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                  <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                     <span className="text-gray-400">Effect</span>
                     <span>Enhanced arousal, reduced sleep need</span>
                   </div>
-                  <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                  <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                     <span className="text-gray-400">Potential</span>
                     <span>Natural short sleep replication, potent anxiolytic stimulant</span>
                   </div>
-                  <div className="border-t border-gray-800"></div>
+                  <div className="border-t border-gray-600"></div>
                 </div>
               </div>
               <div>
@@ -131,24 +119,24 @@ export default function Home() {
                   <h4 className="text-xl font-light mb-4">Gland</h4>
 
                   <div className="text-sm mb-8">
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">Format</span>
                       <span>Implatable device</span>
                     </div>
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">System</span>
                       <span>Synthetic machine-interfacing cells secreting peptides</span>
                     </div>
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">Function</span>
                       <span>Circadian and sleep pressure regulation via targeted peptide secretion</span>
                     </div>
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">Potential</span>
                       <span>Greater daytime arousal + deeper, more efficient sleep
                       </span>
                     </div>
-                    <div className="border-t border-gray-800"></div>
+                    <div className="border-t border-gray-600"></div>
                   </div>
                 </div>
 
@@ -156,60 +144,29 @@ export default function Home() {
                   <h4 className="text-xl font-light mb-4">Nightcap</h4>
 
                   <div className="text-sm">
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">Format</span>
                       <span>Non-invasive wearable
                       </span>
                     </div>
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">System</span>
                       <span>Phase-locked acoustic stimulation (50dB) </span>
                     </div>
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">Function</span>
                       <span>SWS enhancement and coordination
                       </span>
                     </div>
-                    <div className="py-3 border-t border-gray-800 grid grid-cols-2">
+                    <div className="py-3 border-t border-gray-600 grid grid-cols-2">
                       <span className="text-gray-400">Potential</span>
                       <span>Improved memory consolidation and cognitive flexibility</span>
                     </div>
-                    <div className="border-t border-gray-800"></div>
+                    <div className="border-t border-gray-600"></div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="updates" className="py-20 bg-gray-1000">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-3xl font-bold mb-8">Updates</h2>
-            <p className="text-gray-400 mb-8">Stay informed about our latest breakthroughs and developments.</p>
-            
-            {!subscribed ? (
-              <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex-grow px-4 py-3 bg-black border border-gray-700 text-white focus:outline-none focus:border-blue-500"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button 
-                  type="submit" 
-                  className="px-6 py-3 bg-blue-600 text-white font-medium transition-colors hover:bg-blue-700"
-                >
-                  Subscribe
-                </button>
-              </form>
-            ) : (
-              <div className="bg-gray-800 p-6 text-center">
-                <p className="text-xl font-light text-green-400 mb-2">Thank you for subscribing!</p>
-                <p className="text-gray-400">We'll keep you updated on our latest developments.</p>
-              </div>
-            )}
           </div>
         </section>
 
@@ -225,7 +182,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="py-6 text-center border-t border-gray-800">
+      <footer className="py-6 text-center border-t border-gray-600">
         <p>&copy; 2025 Far Sleep Inc.</p>
       </footer>
     </div>
