@@ -175,9 +175,13 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-8">Contact</h2>
             <p className="text-gray-400 mb-8">Interested in learning more about our work or potential collaborations?</p>
             
-            <Link href="/contact" className="inline-block px-6 py-3 border border-white text-white font-medium transition-colors hover:bg-white hover:text-black">
-              Get in touch
+            <Link href="./contact.html" passHref legacyBehavior>
+              <a className="inline-block px-6 py-3 border border-white text-white font-medium transition-colors hover:bg-white hover:text-black">
+                Get in touch
+              </a>
             </Link>
+
+
           </div>
         </section>
       </main>
