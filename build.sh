@@ -25,10 +25,10 @@ replace_once() {
 }
 
 # Fix double domain issue first - clean up any existing URLs that might have been incorrectly processed before
-find . -name "*.html" -type f -exec sed -i '' 's|https://farsleep.comhttps://farsleep.com|https://farsleep.com|g' {} \;
-find . -name "*.html" -type f -exec sed -i '' 's|https://farsleep.com/https://farsleep.com|https://farsleep.com|g' {} \;
-find . -name "*.js" -type f -exec sed -i '' 's|https://farsleep.comhttps://farsleep.com|https://farsleep.com|g' {} \;
-find . -name "*.js" -type f -exec sed -i '' 's|https://farsleep.com/https://farsleep.com|https://farsleep.com|g' {} \;
+find . -name "*.html" -type f -exec sed -i '' 's|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/mainhttps://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|g' {} \;
+find . -name "*.html" -type f -exec sed -i '' 's|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|g' {} \;
+find . -name "*.js" -type f -exec sed -i '' 's|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/mainhttps://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|g' {} \;
+find . -name "*.js" -type f -exec sed -i '' 's|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|g' {} \;
 
 echo "Processing HTML files..."
 
@@ -37,21 +37,21 @@ find . -name "*.html" -type f | while read -r file; do
   echo "Processing $file..."
   
   # Only replace URLs that don't already contain the domain
-  sed -i '' 's|href="\(_next[^"]*\)"|href="https://farsleep.com/\1"|g' "$file"
-  sed -i '' 's|src="\(_next[^"]*\)"|src="https://farsleep.com/\1"|g' "$file"
+  sed -i '' 's|href="\(_next[^"]*\)"|href="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/\1"|g' "$file"
+  sed -i '' 's|src="\(_next[^"]*\)"|src="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/\1"|g' "$file"
   
   # Process styles with url() that don't already contain the domain
-  sed -i '' 's|url(\([^)]*\)mission_background.jpg\([^)]*\))|url(https://farsleep.com/mission_background.jpg)|g' "$file"
+  sed -i '' 's|url(\([^)]*\)mission_background.jpg\([^)]*\))|url(https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/mission_background.jpg)|g' "$file"
   
   # Process escaped HTML quotes that don't already contain the domain
-  sed -i '' 's|url(&quot;/mission_background.jpg&quot;)|url("https://farsleep.com/mission_background.jpg")|g' "$file"
-  sed -i '' 's|url(&quot;\./mission_background.jpg&quot;)|url("https://farsleep.com/mission_background.jpg")|g' "$file"
-  sed -i '' 's|url(&quot;mission_background.jpg&quot;)|url("https://farsleep.com/mission_background.jpg")|g' "$file"
+  sed -i '' 's|url(&quot;/mission_background.jpg&quot;)|url("https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/mission_background.jpg")|g' "$file"
+  sed -i '' 's|url(&quot;\./mission_background.jpg&quot;)|url("https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/mission_background.jpg")|g' "$file"
+  sed -i '' 's|url(&quot;mission_background.jpg&quot;)|url("https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/mission_background.jpg")|g' "$file"
   
   # Fix navigation links
-  sed -i '' 's|href="/contact"|href="https://farsleep.com/contact.html"|g' "$file"
-  sed -i '' 's|href="./contact.html"|href="https://farsleep.com/contact.html"|g' "$file"
-  sed -i '' 's|href="contact.html"|href="https://farsleep.com/contact.html"|g' "$file"
+  sed -i '' 's|href="/contact"|href="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/contact.html"|g' "$file"
+  sed -i '' 's|href="./contact.html"|href="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/contact.html"|g' "$file"
+  sed -i '' 's|href="contact.html"|href="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/contact.html"|g' "$file"
 done
 
 echo "Processing JavaScript files..."
@@ -61,22 +61,22 @@ find ./_next -name "*.js" -type f | while read -r file; do
   echo "Processing $file..."
   
   # Only replace URLs that don't already contain the domain
-  sed -i '' 's|"/_next|"https://farsleep.com/_next|g' "$file"
-  sed -i '' 's|"\\./_next|"https://farsleep.com/_next|g' "$file"
+  sed -i '' 's|"/_next|"https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/_next|g' "$file"
+  sed -i '' 's|"\\./_next|"https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/_next|g' "$file"
   
   # Process image paths in JS
-  sed -i '' 's|"/mission_background.jpg"|"https://farsleep.com/mission_background.jpg"|g' "$file"
+  sed -i '' 's|"/mission_background.jpg"|"https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/mission_background.jpg"|g' "$file"
 done
 
 echo "Final cleanup to catch any missed URLs..."
 
 # Final verification to ensure all _next paths are absolute
-find . -name "*.html" -type f -exec sed -i '' 's|href="/_next|href="https://farsleep.com/_next|g' {} \;
-find . -name "*.html" -type f -exec sed -i '' 's|src="/_next|src="https://farsleep.com/_next|g' {} \;
+find . -name "*.html" -type f -exec sed -i '' 's|href="/_next|href="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/_next|g' {} \;
+find . -name "*.html" -type f -exec sed -i '' 's|src="/_next|src="https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main/_next|g' {} \;
 
 # Verify no double domains were created
-find . -name "*.html" -type f -exec sed -i '' 's|https://farsleep.comhttps://farsleep.com|https://farsleep.com|g' {} \;
-find . -name "*.js" -type f -exec sed -i '' 's|https://farsleep.comhttps://farsleep.com|https://farsleep.com|g' {} \;
+find . -name "*.html" -type f -exec sed -i '' 's|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/mainhttps://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|g' {} \;
+find . -name "*.js" -type f -exec sed -i '' 's|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/mainhttps://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|https://raw.githubusercontent.com/farsleep/farsleep.github.io/refs/heads/main|g' {} \;
 
 echo "Deployment preparation complete with absolute URLs for farsleep.com."
 echo "Now you can commit and push to GitHub."
